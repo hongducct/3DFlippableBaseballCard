@@ -175,16 +175,14 @@ export function ProfileCard({
             {/* Content */}
             <div className="p-8 h-full flex flex-col justify-center">
               {/* Logo */}
-              <motion.div
-                className="text-center mb-8"
+              <motion.img
+                src={image}
+                alt={name}
+                className="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl object-cover mb-8"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
-              >
-                <div className="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center mb-4">
-                  <div className="text-white text-2xl font-bold">Z</div>
-                </div>
-              </motion.div>
+              />
               
               {/* Name and Profession */}
               <motion.div
