@@ -26,6 +26,11 @@ export function ProfileCard({
     setIsFlipped(!isFlipped);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <div className="perspective-1000 w-full max-w-[320px] mx-auto">
       <motion.div
@@ -37,7 +42,11 @@ export function ProfileCard({
         }}
         transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
         onClick={handleCardClick}
-        style={{ transformStyle: "preserve-3d" }}
+        onTouchStart={handleTouchStart}
+        style={{ 
+          transformStyle: "preserve-3d",
+          WebkitTransformStyle: "preserve-3d"
+        }}
         whileHover={{ 
           scale: 1.05,
           rotateX: -2,
@@ -45,9 +54,18 @@ export function ProfileCard({
         }}
       >
         {/* Front Side */}
-        <motion.div
-          className="absolute inset-0 backface-hidden"
-          style={{ backfaceVisibility: "hidden" }}
+        <div
+          className="absolute inset-0"
+          style={{ 
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transformStyle: "preserve-3d",
+            WebkitTransformStyle: "preserve-3d",
+            transform: "rotateY(0deg) translateZ(0)",
+            WebkitTransform: "rotateY(0deg) translateZ(0)",
+            visibility: isFlipped ? "hidden" : "visible",
+            willChange: "transform"
+          }}
         >
           <div className="w-full h-full bg-black/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative">
             {/* Glassmorphism overlay */}
@@ -144,14 +162,20 @@ export function ProfileCard({
               </motion.div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Back Side */}
-        <motion.div
-          className="absolute inset-0 backface-hidden"
+        <div
+          className="absolute inset-0"
           style={{ 
             backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)"
+            WebkitBackfaceVisibility: "hidden",
+            transformStyle: "preserve-3d",
+            WebkitTransformStyle: "preserve-3d",
+            transform: "rotateY(180deg) translateZ(0)",
+            WebkitTransform: "rotateY(180deg) translateZ(0)",
+            visibility: isFlipped ? "visible" : "hidden",
+            willChange: "transform"
           }}
         >
           <div className="w-full h-full bg-black/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative">
@@ -250,7 +274,7 @@ export function ProfileCard({
               </motion.div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   );
