@@ -23,7 +23,7 @@ export default function App() {
         <ProfileCard {...profileData} />
         
         <div className="text-center mt-8 text-gray-500 text-xs">
-          <p>© 2024 Digital Identity</p>
+          <p>© 2025 Digital Identity</p>
         </div>
       </div>
     </div>

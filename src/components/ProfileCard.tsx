@@ -206,22 +206,22 @@ export function ProfileCard({
               >
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400 text-sm">Date of Birth</span>
-                  <span className="text-white text-sm">: {dateOfBirth}</span>
+                  <span className="text-white text-sm"> {dateOfBirth}</span>
                 </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400 text-sm">Age</span>
-                  <span className="text-white text-sm">: {age}</span>
+                  <span className="text-white text-sm"> {age}</span>
                 </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400 text-sm">Blood</span>
-                  <span className="text-white text-sm">: {bloodType}</span>
+                  <span className="text-white text-sm"> {bloodType}</span>
                 </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400 text-sm">Zodiac Sign</span>
-                  <span className="text-white text-sm">: {zodiacSign}</span>
+                  <span className="text-white text-sm"> {zodiacSign}</span>
                 </div>
               </motion.div>
               
